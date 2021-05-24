@@ -15,8 +15,8 @@ export class DatePickerComponent implements OnInit {
   maxDate = new Date();
   selics: SelicResponse[];
 
-  dataInicial: string = '10/10/2020';
-  dataFinal: string = '11/11/2020';
+  dataInicial: string = '';
+  dataFinal: string = '';
 
   constructor(private selic: SelicService) { }
 
@@ -24,11 +24,16 @@ export class DatePickerComponent implements OnInit {
 
   addEvent1(type: SelicService, event: MatDatepickerInputEvent<Date>) {
     this.dataInicial = event.value.toLocaleDateString('pt-BR');
-    return this.dataInicial;
+    //return this.dataInicial;
   }
 
   addEvent2(type: SelicService, event: MatDatepickerInputEvent<Date>) {
     this.dataFinal = event.value.toLocaleDateString('pt-BR');
-    this.selic.getSelic(this.dataInicial, this.dataFinal).subscribe(dados => this.selics = dados);
+    if (this.dataInicial <= this.dataFinal) {
+      this.selic.getSelic(this.dataInicial, this.dataFinal).subscribe(dados => this.selics = dados);
+      document.getElementById("tabela").style.visibility = 'visible';
+     } else {
+      alert("A data inicial deve ser anterior à data final!");
+      document.getElementById("tabela").style.visibility = 'hidden';}
   }
 }
