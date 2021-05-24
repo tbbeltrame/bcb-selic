@@ -1,13 +1,25 @@
 <mat-form-field appearance="fill">
   <mat-label>Data Inicial</mat-label>
-  <input matInput [matDatepicker]="datePicker1" [min]="minDate" [max]=maxDate (dateChange)="addEvent1('change', $event)">
+  <input
+    matInput
+    [matDatepicker]="datePicker1"
+    [min]="minDate"
+    [max]="maxDate"
+    (dateChange)="addEvent1('change', $event)"
+  />
   <mat-datepicker-toggle matSuffix [for]="datePicker1"></mat-datepicker-toggle>
   <mat-datepicker #datePicker1></mat-datepicker>
 </mat-form-field>
 
 <mat-form-field appearance="fill">
   <mat-label>Data Final</mat-label>
-  <input matInput [matDatepicker]="datePicker2" [min]="minDate" [max]=maxDate (dateChange)="addEvent2('change', $event)">
+  <input
+    matInput
+    [matDatepicker]="datePicker2"
+    [min]="minDate"
+    [max]="maxDate"
+    (dateChange)="addEvent2('change', $event)"
+  />
   <mat-datepicker-toggle matSuffix [for]="datePicker2"></mat-datepicker-toggle>
   <mat-datepicker #datePicker2></mat-datepicker>
 </mat-form-field>
@@ -16,11 +28,11 @@
   <li> Data: {{ i.data }} | Taxa: {{ i.valor }} </li>
 </ul-->
 
-<table id="tabela" style="width:33%" >
+<table id="tabela" style="width: 33%">
   <th>Data</th>
   <th>Valor</th>
   <tr *ngFor="let i of selics">
-    <td> {{ i.data }} </td>
-    <td> {{ i.valor }} </td>
+    <td>{{ i.data }}</td>
+    <td>{{ i.valor }}</td>
   </tr>
 </table>
