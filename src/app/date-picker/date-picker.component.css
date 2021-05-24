@@ -1,0 +1,16 @@
+.mat-form-field {
+  margin-right: 20px;
+}
+
+table {
+  text-align: center;
+  width: 100%;
+  overflow: auto
+}
+
+th, td {
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
