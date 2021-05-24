@@ -7,6 +7,11 @@ import { AppComponent } from './app.component';
 import { SelicService } from './selic.service';
 import { DatePickerModule } from './date-picker/date-picker.module';
 
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localePt);
+
 @NgModule({
   declarations: [
     AppComponent,

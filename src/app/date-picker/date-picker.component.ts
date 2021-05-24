@@ -1,40 +1,39 @@
-import { Component, OnInit } from "@angular/core";
-import { MatDatepickerInputEvent } from "@angular/material/datepicker";
-import { DatePipe } from "@angular/common";
+import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
-import { SelicResponse, SelicService } from "./../selic.service";
+import { Selic, SelicService } from './../selic.service';
 
 @Component({
-  selector: "app-date-picker",
-  templateUrl: "./date-picker.component.html",
-  styleUrls: ["./date-picker.component.css"],
+  selector: 'app-date-picker',
+  templateUrl: './date-picker.component.html',
+  styleUrls: ['./date-picker.component.css'],
 })
 export class DatePickerComponent implements OnInit {
   minDate = new Date(1986, 6, 4);
   maxDate = new Date();
-  selics: SelicResponse[];
+  selicData: Selic[] = [];
 
-  dataInicial: string = "";
-  dataFinal: string = "";
+  startDate: Date;
+  endDate: Date;
+  hidden: boolean = true;
 
-  constructor(private selic: SelicService) {}
+  constructor(private selicService: SelicService, @Inject(LOCALE_ID) private localeId: string) {}
 
   ngOnInit() {}
 
-  addEvent1(type: SelicService, event: MatDatepickerInputEvent<Date>) {
-    this.dataInicial = event.value.toLocaleDateString("pt-BR");
+  startDateChange(event: MatDatepickerInputEvent<Date>) {
+    this.startDate = event.value;
   }
 
-  addEvent2(type: SelicService, event: MatDatepickerInputEvent<Date>) {
-    this.dataFinal = event.value.toLocaleDateString("pt-BR");
-    if (this.dataInicial <= this.dataFinal) {
-      this.selic
-        .getSelic(this.dataInicial, this.dataFinal)
-        .subscribe((dados) => (this.selics = dados));
-      document.getElementById("tabela").style.visibility = "visible";
+  endDateChange(event: MatDatepickerInputEvent<Date>) {
+    this.endDate = event.value;
+    if (this.startDate <= this.endDate) {
+      this.selicService.getSelic(this.startDate, this.endDate).subscribe((data) => {
+        this.selicData = data;
+        this.hidden = !data.length;
+      });
     } else {
-      alert("A data inicial deve ser anterior à data final!");
-      document.getElementById("tabela").style.visibility = "hidden";
+      alert('A data inicial deve ser anterior à data final!');
     }
   }
 }

@@ -6,7 +6,6 @@ table {
   text-align: center;
   width: 100%;
   overflow: auto;
-  visibility: hidden;
 }
 
 th,
