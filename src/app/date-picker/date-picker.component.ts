@@ -16,6 +16,7 @@ export class DatePickerComponent implements OnInit {
   startDate: Date;
   endDate: Date;
   hidden: boolean = true;
+  hiddenLoader: boolean = false;
 
   constructor(private selicService: SelicService, @Inject(LOCALE_ID) private localeId: string) {}
 
@@ -28,12 +29,16 @@ export class DatePickerComponent implements OnInit {
   endDateChange(event: MatDatepickerInputEvent<Date>) {
     this.endDate = event.value;
     if (this.startDate <= this.endDate) {
+      this.hiddenLoader =  true;
       this.selicService.getSelic(this.startDate, this.endDate).subscribe((data) => {
         this.selicData = data;
+        this.hiddenLoader = !data.length;
         this.hidden = !data.length;
       });
     } else {
       alert('A data inicial deve ser anterior à data final!');
+      this.hiddenLoader = false;
+      this.hidden = true;
     }
   }
 }

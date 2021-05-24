@@ -7,6 +7,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DatePickerComponent } from './date-picker.component';
+import { MatProgressSpinnerModule } from '@angular/material';
 
 @NgModule({
   declarations: [DatePickerComponent],
@@ -17,6 +18,7 @@ import { DatePickerComponent } from './date-picker.component';
     MatInputModule,
     MatNativeDateModule,
     BrowserAnimationsModule,
+    MatProgressSpinnerModule,
   ],
   exports: [DatePickerComponent],
 })

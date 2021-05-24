@@ -22,10 +22,13 @@
   <li> Data: {{ i.data }} | Taxa: {{ i.valor }} </li>
 </ul-->
 
+<mat-progress-spinner mode="indeterminate" *ngIf="hiddenLoader">
+</mat-progress-spinner>
+
 <table id="tabela" style="width: 33%" [hidden]="hidden">
   <th>Data</th>
   <th>Valor</th>
-  <tr *ngFor="let i of selics">
+  <tr *ngFor="let i of selicData">
     <td>{{ i.data | date: 'shortDate' }}</td>
     <td>{{ i.valor }}</td>
   </tr>
