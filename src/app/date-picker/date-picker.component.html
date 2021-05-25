@@ -18,11 +18,7 @@
   <mat-datepicker #datePicker2></mat-datepicker>
 </mat-form-field>
 
-<!--ul *ngFor="let i of selics">
-  <li> Data: {{ i.data }} | Taxa: {{ i.valor }} </li>
-</ul-->
-
-<mat-progress-spinner mode="indeterminate" *ngIf="hiddenLoader">
+<mat-progress-spinner mode="indeterminate" diameter="70" style="margin: 0 215px" *ngIf="hiddenLoader">
 </mat-progress-spinner>
 
 <table id="tabela" style="width: 33%" [hidden]="hidden">

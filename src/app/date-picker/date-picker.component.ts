@@ -13,22 +13,23 @@ export class DatePickerComponent implements OnInit {
   minDate = new Date(1986, 6, 4);
   maxDate = new Date();
   selicData: Selic[] = [];
-
   startDate: Date;
   endDate: Date;
   hidden: boolean = true;
   hiddenLoader: boolean = false;
 
-  constructor(private selicService: SelicService, @Inject(LOCALE_ID) private localeId: string,private translate: TranslateService) {
-      translate.addLangs(['en','pt']);
-      translate.setDefaultLang('en');
+  constructor(
+    private selicService: SelicService,
+    @Inject(LOCALE_ID) private localeId: string,
+    private translate: TranslateService
+  ) {
+    translate.addLangs(['en', 'pt']);
+    translate.setDefaultLang('en');
   }
 
-  useLanguage(language: string) {
-    this.translate.use(language);
+  ngOnInit() {
+    this.translate.use(this.localeId);
   }
-
-  ngOnInit() {}
 
   startDateChange(event: MatDatepickerInputEvent<Date>) {
     this.startDate = event.value;
@@ -38,7 +39,7 @@ export class DatePickerComponent implements OnInit {
     this.endDate = event.value;
     if (this.startDate <= this.endDate) {
       this.hidden = true;
-      this.hiddenLoader =  true;
+      this.hiddenLoader = true;
       this.selicService.getSelic(this.startDate, this.endDate).subscribe((data) => {
         this.selicData = data;
         this.hiddenLoader = !data.length;

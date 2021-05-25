@@ -5,12 +5,12 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { DatePickerComponent } from './date-picker.component';
 import { MatProgressSpinnerModule } from '@angular/material';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+import { DatePickerComponent } from './date-picker.component';
 
 @NgModule({
   declarations: [DatePickerComponent],
@@ -25,11 +25,11 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
-      }
-  })
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   exports: [DatePickerComponent],
 })
