@@ -29,6 +29,7 @@ export class DatePickerComponent implements OnInit {
   endDateChange(event: MatDatepickerInputEvent<Date>) {
     this.endDate = event.value;
     if (this.startDate <= this.endDate) {
+      this.hidden = true;
       this.hiddenLoader =  true;
       this.selicService.getSelic(this.startDate, this.endDate).subscribe((data) => {
         this.selicData = data;

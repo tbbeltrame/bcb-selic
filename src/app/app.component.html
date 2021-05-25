@@ -1,2 +1,9 @@
+<h3> 
+    <p>{{ 'welcome.title' | translate:{'title': title} }}</p>
+    <p>{{ 'welcome.first-paragraph' | translate }}</p>
+    <p><button (click)="useLanguage('en')">en</button>
+        <button (click)="useLanguage('pt')">pt</button></p>
+</h3>
+<br />
 <app-date-picker></app-date-picker>
 

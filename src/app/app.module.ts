@@ -9,6 +9,10 @@ import { DatePickerModule } from './date-picker/date-picker.module';
 
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { TranslateLoader } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 registerLocaleData(localePt);
 
@@ -20,7 +24,14 @@ registerLocaleData(localePt);
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    DatePickerModule
+    DatePickerModule,
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+        }
+    })
   ],
   providers: [
     SelicService,
@@ -32,3 +43,7 @@ registerLocaleData(localePt);
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+}

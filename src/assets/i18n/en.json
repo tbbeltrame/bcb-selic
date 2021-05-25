@@ -1,0 +1,10 @@
+{
+    "welcome": {
+        "first-paragraph": "This is the first paragraph!",
+        "title": "Welcome to {{title}}!"
+    },
+
+    "datepicker": {
+        "text": "Start Date"
+    }
+}
