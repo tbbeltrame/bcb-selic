@@ -1,5 +1,6 @@
 import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { TranslateService } from '@ngx-translate/core';
 
 import { Selic, SelicService } from './../selic.service';
 
@@ -18,7 +19,14 @@ export class DatePickerComponent implements OnInit {
   hidden: boolean = true;
   hiddenLoader: boolean = false;
 
-  constructor(private selicService: SelicService, @Inject(LOCALE_ID) private localeId: string) {}
+  constructor(private selicService: SelicService, @Inject(LOCALE_ID) private localeId: string,private translate: TranslateService) {
+      translate.addLangs(['en','pt']);
+      translate.setDefaultLang('en');
+  }
+
+  useLanguage(language: string) {
+    this.translate.use(language);
+  }
 
   ngOnInit() {}
 
@@ -37,7 +45,7 @@ export class DatePickerComponent implements OnInit {
         this.hidden = !data.length;
       });
     } else {
-      alert('A data inicial deve ser anterior à data final!');
+      alert(this.translate.instant('warning.message-dates'));
       this.hiddenLoader = false;
       this.hidden = true;
     }

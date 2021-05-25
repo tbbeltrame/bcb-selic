@@ -5,6 +5,11 @@
     },
 
     "datepicker": {
-        "text": "Start Date"
+        "text-start": "Start Date",
+        "text-end": "End Date"
+    },
+
+    "warning": {
+        "message-dates": "The start date must be predecessor to end date!"
     }
 }

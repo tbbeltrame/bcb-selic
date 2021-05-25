@@ -1,5 +1,5 @@
 <mat-form-field appearance="fill">
-  <mat-label>Data Inicial</mat-label>
+  <mat-label>{{ 'datepicker.text-start' | translate }}</mat-label>
   <input
     matInput
     [matDatepicker]="datePicker1"
@@ -12,7 +12,7 @@
 </mat-form-field>
 
 <mat-form-field appearance="fill">
-  <mat-label>Data Final</mat-label>
+  <mat-label>{{ 'datepicker.text-end' | translate }}</mat-label>
   <input matInput [matDatepicker]="datePicker2" [min]="minDate" [max]="maxDate" (dateChange)="endDateChange($event)" />
   <mat-datepicker-toggle matSuffix [for]="datePicker2"></mat-datepicker-toggle>
   <mat-datepicker #datePicker2></mat-datepicker>

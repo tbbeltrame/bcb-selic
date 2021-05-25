@@ -5,6 +5,11 @@
     },
 
     "datepicker": {
-        "text": "Data Inicial"
+        "text-start": "Data Inicial",
+        "text-end": "Data Final"
+    },
+
+    "warning": {
+        "message-dates": "A data de início deve ser anterior à data de término!"
     }
 }

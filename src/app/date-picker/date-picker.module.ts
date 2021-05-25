@@ -8,6 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DatePickerComponent } from './date-picker.component';
 import { MatProgressSpinnerModule } from '@angular/material';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
   declarations: [DatePickerComponent],
@@ -19,7 +22,19 @@ import { MatProgressSpinnerModule } from '@angular/material';
     MatNativeDateModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  })
   ],
   exports: [DatePickerComponent],
 })
 export class DatePickerModule {}
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
