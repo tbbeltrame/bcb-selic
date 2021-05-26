@@ -9,6 +9,11 @@
         "text-end": "Data Final"
     },
 
+    "table": {
+      "date": "Data",
+      "value": "Valor"
+  },
+
     "warning": {
         "message-dates": "A data de início deve ser anterior à data de término!"
     }

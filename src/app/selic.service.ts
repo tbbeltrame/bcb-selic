@@ -13,7 +13,7 @@ export class SelicService {
   constructor(private http: HttpClient) {}
 
   getSelic(startDate: Date, endDate: Date): Observable<Selic[]> {
-    const dataInicial = startDate.toLocaleDateString('pt-BR');
+    const dataInicial = startDate.toLocaleDateString('pt-BR'); 
     const dataFinal = endDate.toLocaleDateString('pt-BR');
     const params = new HttpParams({ fromObject: { format: 'json', dataInicial, dataFinal } });
     return this.http.get<SelicResponse[]>(this.selicApi, { params }).pipe(

@@ -9,6 +9,11 @@
         "text-end": "End Date"
     },
 
+    "table": {
+      "date": "Date",
+      "value": "Value"
+  },
+
     "warning": {
         "message-dates": "The start date must be predecessor to end date!"
     }

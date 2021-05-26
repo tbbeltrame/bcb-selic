@@ -22,8 +22,8 @@
 </mat-progress-spinner>
 
 <table id="tabela" style="width: 33%" [hidden]="hidden">
-  <th>Data</th>
-  <th>Valor</th>
+  <th>{{ 'table.date' | translate }}</th>
+  <th>{{ 'table.value' | translate }}</th>
   <tr *ngFor="let i of selicData">
     <td>{{ i.data | date: 'shortDate' }}</td>
     <td>{{ i.valor }}</td>
