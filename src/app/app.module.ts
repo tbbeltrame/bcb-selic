@@ -18,7 +18,7 @@ registerLocaleData(localePt);
     SelicService,
     {
       provide: LOCALE_ID,
-      useValue: 'pt',
+      useValue: 'en-US',
     },
   ],
   exports: [AppComponent],

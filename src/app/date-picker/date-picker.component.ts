@@ -23,8 +23,8 @@ export class DatePickerComponent implements OnInit {
     @Inject(LOCALE_ID) private localeId: string,
     private translate: TranslateService
   ) {
-    translate.addLangs(['en', 'pt']);
-    translate.setDefaultLang('en');
+    translate.addLangs(['en-US', 'pt-BR']);
+    translate.setDefaultLang('en-US');
   }
 
   ngOnInit() {
