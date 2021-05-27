@@ -24,7 +24,7 @@ export class DatePickerComponent implements OnInit {
     private translate: TranslateService
   ) {
     translate.addLangs(['en-US', 'pt-BR']);
-    translate.setDefaultLang('en-US');
+    translate.setDefaultLang(this.localeId);
   }
 
   ngOnInit() {

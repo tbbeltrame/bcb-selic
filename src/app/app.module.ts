@@ -7,13 +7,14 @@ import { registerLocaleData } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { SelicService } from './selic.service';
-import { DatePickerModule } from './date-picker/date-picker.module';
+
+import { AppRoutingModule } from './app-routing.module';
 
 registerLocaleData(localePt);
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, HttpClientModule, BrowserAnimationsModule, DatePickerModule],
+  imports: [BrowserModule, HttpClientModule, BrowserAnimationsModule, AppRoutingModule],
   providers: [
     SelicService,
     {
