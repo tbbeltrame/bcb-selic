@@ -1,3 +1,13 @@
-<p>
-  selic works!
-</p>
+<mat-progress-spinner mode="indeterminate" diameter="70" style="margin: 0 215px" *ngIf="hiddenLoader">
+</mat-progress-spinner>
+
+<table id="tabela" style="width: 33%" [hidden]="hidden">
+  <tr>
+    <th>{{ 'table.date' | translate }}</th>
+    <th>{{ 'table.value' | translate }}</th>
+  </tr>
+  <tr *ngFor="let i of selicData">
+    <td>{{ i.data | date: 'shortDate' }}</td>
+    <td>{{ i.valor }}</td>
+  </tr>
+</table>
