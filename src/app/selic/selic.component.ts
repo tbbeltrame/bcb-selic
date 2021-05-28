@@ -30,6 +30,12 @@ export class SelicComponent implements OnChanges, DoCheck{
         this.RequestSelic();
       }
     }
+    else{
+      if('startDate' in changes && this.selicData.length > 0)
+      {
+          this.RequestSelic();
+      }
+    }
   }
 
   ngDoCheck() {}

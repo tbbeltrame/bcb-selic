@@ -9,8 +9,8 @@ import { TranslateService } from '@ngx-translate/core';
 export class DatePickerComponent {
   minDate = new Date(1986, 6, 4);
   maxDate = new Date();
-  startDate = new Date(1986, 6, 4);
-  endDate= new Date(1986, 6, 4);
+  startDate: Date;
+  endDate: Date;
 
   constructor(private translate: TranslateService) {}
 
