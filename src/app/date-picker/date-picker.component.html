@@ -5,7 +5,7 @@
     [matDatepicker]="datePicker1"
     [min]="minDate"
     [max]="maxDate"
-    (dateChange)="startDateChange($event)"
+    (dateChange)="onStartDateChange($event)"
   />
   <mat-datepicker-toggle matSuffix [for]="datePicker1"></mat-datepicker-toggle>
   <mat-datepicker #datePicker1></mat-datepicker>
@@ -13,9 +13,13 @@
 
 <mat-form-field appearance="fill">
   <mat-label>{{ 'datepicker.text-end' | translate }}</mat-label>
-  <input matInput [matDatepicker]="datePicker2" [min]="minDate" [max]="maxDate" (dateChange)="endDateChange($event)" />
+  <input
+    matInput
+    [matDatepicker]="datePicker2"
+    [min]="minDate"
+    [max]="maxDate"
+    (dateChange)="onEndDateChange($event)"
+  />
   <mat-datepicker-toggle matSuffix [for]="datePicker2"></mat-datepicker-toggle>
   <mat-datepicker #datePicker2></mat-datepicker>
 </mat-form-field>
-
-<app-selic [startDate]="startDate" [endDate]="endDate"></app-selic>

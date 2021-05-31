@@ -30,7 +30,7 @@ registerLocaleData(localePt);
   providers: [
     {
       provide: LOCALE_ID,
-      useValue: 'en-US',
+      useValue: 'pt-BR',
     },
   ],
   exports: [AppComponent],
